@@ -4,7 +4,7 @@ public class Testing {
 	public static void main(String[] args) {
 		
 		String str = "HellO There";
-		String pal = "racecar";
+		String pal = "Racecar";
 		
 		System.out.println(str);
 		System.out.println(Vowels.countVowels(str));
