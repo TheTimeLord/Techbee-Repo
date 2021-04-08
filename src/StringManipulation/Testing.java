@@ -3,7 +3,7 @@ package StringManipulation;
 public class Testing {
 	public static void main(String[] args) {
 		
-		String str = "Hello There";
+		String str = "HellO There";
 		String pal = "racecar";
 		
 		System.out.println(str);
