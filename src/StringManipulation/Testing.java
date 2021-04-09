@@ -5,7 +5,7 @@ public class Testing {
 		
 		String str = "HellO There";
 		String pal = "Racecar";
-		String sent = "I heard silly funny things";
+		String sent = "Billy was happy at his party";
 		
 		System.out.println(str);
 		System.out.println(Vowels.countVowels(str));
@@ -29,6 +29,5 @@ public class Testing {
 		System.out.println(Words.countWords(sent));
 		System.out.println(Consonants.replaceConsonants(sent));
 		LastLetterCount.lastLetter(sent);
-		
 	}
 }

@@ -61,19 +61,21 @@ public class LastLetterCount {
 		
 		// Start building the new sentence
 		if(startY < startS) {
-			sb.append(str.substring(0, startY+1));
-			sb.append(str.substring(startS+1, endS+1));
+			sb.append(str.substring(0, startY));
+			sb.append(str.substring(startS, endS+1));
 			sb.append(str.substring(endY+1, startS+1));
-			sb.append(str.substring(startY+1, endY+1));
+			sb.append(str.substring(startY, endY+1));
+			sb.append(str.substring(endS+1, str.length()));
 		}
 		else {
-			sb.append(str.substring(0, startS+1));
-			sb.append(str.substring(startY+1, endY+1));
+			sb.append(str.substring(0, startS));
+			sb.append(str.substring(startY, endY+1));
 			sb.append(str.substring(endS+1, startY+1));
-			sb.append(str.substring(startS+1, endS+1));
+			sb.append(str.substring(startS, endS+1));
+			sb.append(str.substring(endY+1, str.length()));
 		}
 		System.out.println("# of words that end with s: " + numS);
 		System.out.println("# of words that end with y: " + numY);
-		System.out.println(sb.toString());
+		System.out.println(sb.toString().trim());
 	}
 }
