@@ -22,31 +22,39 @@ public class UserProfileDAO {
 			
 		}
 	}
-	public void displayUser(UserProfile user) {
-		System.out.println("Name: " + user.getName());
-		System.out.println("Age: " + user.getAge());
-		System.out.println("Email: "  + user.getEmailAddress());
-		System.out.println("Phone: " + user.getPhoneNumber());
-		System.out.println("Zip: " + user.getZipcode());
-		System.out.println("SSN: " + user.getSsnNumber());
+	public void displayUser(int userIndex) {
+		if(userIndex >= data.size() || userIndex < 0)
+			System.out.println("Error: User index out of bounds");
+		else {
+			System.out.println("Name: " + data.get(userIndex).getName());
+			System.out.println("Age: " + data.get(userIndex).getAge());
+			System.out.println("Email: "  + data.get(userIndex).getEmailAddress());
+			System.out.println("Phone: " + data.get(userIndex).getPhoneNumber());
+			System.out.println("Zip: " + data.get(userIndex).getZipcode());
+			System.out.println("SSN: " + data.get(userIndex).getSsnNumber());
+		}
 	}
 	
 	// Update User
-	public void updateUser(UserProfile user, String name, int age, String email, int phone, int zip, int ssn) {
-		user.setName(name);
-		user.setAge(age);
-		user.setEmailAddress(email);
-		user.setPhoneNumber(phone);
-		user.setZipcode(zip);
-		user.setSsnNumber(ssn);
+	public void updateUser(int userIndex, String name, int age, String email, int phone, int zip, int ssn) {
+		if(userIndex >= data.size() || userIndex < 0)
+			System.out.println("Error: User index out of bounds");
+		else {
+			data.get(userIndex).setName(name);
+			data.get(userIndex).setAge(age);
+			data.get(userIndex).setEmailAddress(email);
+			data.get(userIndex).setPhoneNumber(phone);
+			data.get(userIndex).setZipcode(zip);
+			data.get(userIndex).setSsnNumber(ssn);
+		}
 	}
 	
 	// Delete User
-	public void deleteUser(UserProfile user) {
-		for(int i=0; i<data.size(); i++) {
-			if(user.equals(data.get(i))) {
-				data.remove(i);
-			}
+	public void deleteUser(int userIndex) {
+		if(userIndex >= data.size() || userIndex < 0)
+			System.out.println("Error: User index out of bounds");
+		else {
+			data.remove(userIndex);
 		}
 	}
 }
