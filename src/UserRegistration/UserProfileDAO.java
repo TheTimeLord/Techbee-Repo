@@ -12,6 +12,7 @@ public class UserProfileDAO {
 	
 	// Read Users
 	public void displayUsers() {
+		System.out.println("----------------------------");
 		for(int i=0; i<data.size(); i++) {
 			System.out.println("Name: " + data.get(i).getName());
 			System.out.println("Age: " + data.get(i).getAge());
@@ -19,7 +20,7 @@ public class UserProfileDAO {
 			System.out.println("Phone: " + data.get(i).getPhoneNumber());
 			System.out.println("Zip: " + data.get(i).getZipcode());
 			System.out.println("SSN: " + data.get(i).getSsnNumber());
-			
+			System.out.println("----------------------------");
 		}
 	}
 	public void displayUser(int userIndex) {
@@ -56,5 +57,10 @@ public class UserProfileDAO {
 		else {
 			data.remove(userIndex);
 		}
+	}
+	
+	// Number of users
+	public int numUsers() {
+		return data.size();
 	}
 }

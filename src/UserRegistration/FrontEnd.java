@@ -17,7 +17,7 @@ public class FrontEnd {
 			if(scan.next().charAt(0) == 'y') {
 				UserProfile user = new UserProfile();
 
-				// TODO: handle input mismatch exceptions one at a time
+				//TODO: handle input mismatch exceptions one at a time
 				System.out.print("Enter name: ");
 				user.setName(scan.next());
 				System.out.print("Enter Age: ");
@@ -35,10 +35,51 @@ public class FrontEnd {
 				
 			}
 			
-			// print all users
+			// Print all users
 			System.out.print("Would you like to print all users? (y/n): ");
 			if(scan.next().charAt(0) == 'y')
 				database.displayUsers();
+			
+			
+			// Update a user
+			System.out.print("Would you like to update a user? (y/n): ");
+			if(scan.next().charAt(0) == 'y') {
+				//TODO: handle input mismatch and OOB exceptions
+				System.out.print("Which user would you like to update? (0-" + (database.numUsers()-1) + "): ");
+				int uid = scan.nextInt();
+				
+				System.out.println("User to update:");
+				database.displayUser(uid);
+				
+				//TODO: handle input mismatch exceptions one at a time
+				System.out.print("Enter name: ");
+				String name = scan.next();
+				System.out.print("Enter Age: ");
+				int age = scan.nextInt();
+				System.out.print("Enter email: ");
+				String email = scan.next();
+				System.out.print("Enter phone number: ");
+				int phone = scan.nextInt();
+				System.out.print("Enter zipcode: ");
+				int zip = scan.nextInt();
+				System.out.print("Enter SSN: ");
+				int ssn = scan.nextInt();
+				
+				database.updateUser(uid, name, age, email, phone, zip, ssn);
+				System.out.println("Updated user information:");
+				database.displayUser(uid);
+				
+			}
+			
+			// Delete a user
+			System.out.print("Would you like to delete a user? (y/n): ");
+			if(scan.next().charAt(0) == 'y') {
+				//TODO: handle input mismatch and OOB exceptions
+				System.out.print("Which user would you like to delete? (0-" + (database.numUsers()-1) + "): ");
+				int uid = scan.nextInt();
+				
+				database.deleteUser(uid);
+			}
 			
 			
 			// Ask to continue
