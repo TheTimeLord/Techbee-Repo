@@ -14,12 +14,9 @@ public class UserProfileDAO {
 	public void displayUsers() {
 		System.out.println("----------------------------");
 		for(int i=0; i<data.size(); i++) {
-			System.out.println("Name: " + data.get(i).getName());
-			System.out.println("Age: " + data.get(i).getAge());
+			System.out.println("First Name: " + data.get(i).getFirstName());
+			System.out.println("Last Name: " + data.get(i).getLastName());
 			System.out.println("Email: "  + data.get(i).getEmailAddress());
-			System.out.println("Phone: " + data.get(i).getPhoneNumber());
-			System.out.println("Zip: " + data.get(i).getZipcode());
-			System.out.println("SSN: " + data.get(i).getSsnNumber());
 			System.out.println("----------------------------");
 		}
 	}
@@ -27,26 +24,20 @@ public class UserProfileDAO {
 		if(userIndex >= data.size() || userIndex < 0)
 			System.out.println("Error: User index out of bounds");
 		else {
-			System.out.println("Name: " + data.get(userIndex).getName());
-			System.out.println("Age: " + data.get(userIndex).getAge());
+			System.out.println("First Name: " + data.get(userIndex).getFirstName());
+			System.out.println("Last Name: " + data.get(userIndex).getLastName());
 			System.out.println("Email: "  + data.get(userIndex).getEmailAddress());
-			System.out.println("Phone: " + data.get(userIndex).getPhoneNumber());
-			System.out.println("Zip: " + data.get(userIndex).getZipcode());
-			System.out.println("SSN: " + data.get(userIndex).getSsnNumber());
 		}
 	}
 	
 	// Update User
-	public void updateUser(int userIndex, String name, int age, String email, int phone, int zip, int ssn) {
+	public void updateUser(int userIndex, String firstName, String lastName, String email) {
 		if(userIndex >= data.size() || userIndex < 0)
 			System.out.println("Error: User index out of bounds");
 		else {
-			data.get(userIndex).setName(name);
-			data.get(userIndex).setAge(age);
+			data.get(userIndex).setFirstName(firstName);
+			data.get(userIndex).setLastName(lastName);
 			data.get(userIndex).setEmailAddress(email);
-			data.get(userIndex).setPhoneNumber(phone);
-			data.get(userIndex).setZipcode(zip);
-			data.get(userIndex).setSsnNumber(ssn);
 		}
 	}
 	

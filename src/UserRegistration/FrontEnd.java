@@ -14,22 +14,16 @@ public class FrontEnd {
 	
 			// Add user
 			System.out.print("Add new user? (y/n): ");
-			if(scan.next().charAt(0) == 'y') {
+			if(scan.nextLine().charAt(0) == 'y') {
 				UserProfile user = new UserProfile();
 
 				//TODO: handle input mismatch exceptions one at a time
-				System.out.print("Enter name: ");
-				user.setName(scan.next());
-				System.out.print("Enter Age: ");
-				user.setAge(scan.nextInt());
+				System.out.print("Enter first name: ");
+				user.setFirstName(scan.nextLine());
+				System.out.print("Enter last name: ");
+				user.setLastName(scan.nextLine());
 				System.out.print("Enter email: ");
-				user.setEmailAddress(scan.next());
-				System.out.print("Enter phone number: ");
-				user.setPhoneNumber(scan.nextInt());
-				System.out.print("Enter zipcode: ");
-				user.setZipcode(scan.nextInt());
-				System.out.print("Enter SSN: ");
-				user.setSsnNumber(scan.nextInt());
+				user.setEmailAddress(scan.nextLine());
 
 				database.addUser(user);
 				
@@ -37,35 +31,30 @@ public class FrontEnd {
 			
 			// Print all users
 			System.out.print("Would you like to print all users? (y/n): ");
-			if(scan.next().charAt(0) == 'y')
+			if(scan.nextLine().charAt(0) == 'y')
 				database.displayUsers();
 			
 			
 			// Update a user
 			System.out.print("Would you like to update a user? (y/n): ");
-			if(scan.next().charAt(0) == 'y') {
+			if(scan.nextLine().charAt(0) == 'y') {
 				//TODO: handle input mismatch and OOB exceptions
 				System.out.print("Which user would you like to update? (0-" + (database.numUsers()-1) + "): ");
 				int uid = scan.nextInt();
+				scan.nextLine();
 				
 				System.out.println("User to update:");
 				database.displayUser(uid);
 				
 				//TODO: handle input mismatch exceptions one at a time
-				System.out.print("Enter name: ");
-				String name = scan.next();
-				System.out.print("Enter Age: ");
-				int age = scan.nextInt();
+				System.out.print("Enter first name: ");
+				String firstName = scan.nextLine();
+				System.out.print("Enter last name: ");
+				String lastName = scan.nextLine();
 				System.out.print("Enter email: ");
-				String email = scan.next();
-				System.out.print("Enter phone number: ");
-				int phone = scan.nextInt();
-				System.out.print("Enter zipcode: ");
-				int zip = scan.nextInt();
-				System.out.print("Enter SSN: ");
-				int ssn = scan.nextInt();
-				
-				database.updateUser(uid, name, age, email, phone, zip, ssn);
+				String email = scan.nextLine();
+
+				database.updateUser(uid, firstName, lastName, email);
 				System.out.println("Updated user information:");
 				database.displayUser(uid);
 				
@@ -73,10 +62,11 @@ public class FrontEnd {
 			
 			// Delete a user
 			System.out.print("Would you like to delete a user? (y/n): ");
-			if(scan.next().charAt(0) == 'y') {
+			if(scan.nextLine().charAt(0) == 'y') {
 				//TODO: handle input mismatch and OOB exceptions
 				System.out.print("Which user would you like to delete? (0-" + (database.numUsers()-1) + "): ");
 				int uid = scan.nextInt();
+				scan.nextLine();
 				
 				database.deleteUser(uid);
 			}
@@ -84,7 +74,7 @@ public class FrontEnd {
 			
 			// Ask to continue
 			System.out.print("Would you like to continue? (y/n): ");
-			if(scan.next().charAt(0) == 'y')
+			if(scan.nextLine().charAt(0) == 'y')
 				keepGoing = true;
 		} while(keepGoing);
 		
