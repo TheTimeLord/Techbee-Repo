@@ -16,15 +16,30 @@ public class FrontEnd {
 			System.out.print("Add new user? (y/n): ");
 			if(scan.nextLine().charAt(0) == 'y') {
 				UserProfile user = new UserProfile();
-
-				//TODO: handle input mismatch exceptions one at a time
-				System.out.print("Enter first name: ");
-				user.setFirstName(scan.nextLine());
-				System.out.print("Enter last name: ");
-				user.setLastName(scan.nextLine());
-				System.out.print("Enter email: ");
-				user.setEmailAddress(scan.nextLine());
-
+				
+				do {
+					//TODO: handle input mismatch exceptions one at a time
+					System.out.print("Enter first name: ");
+					user.setFirstName(scan.nextLine());
+					System.out.print("Enter last name: ");
+					user.setLastName(scan.nextLine());
+					System.out.print("Enter email: ");
+					user.setEmailAddress(scan.nextLine());
+					System.out.print("Enter password: ");
+					user.setPassword(scan.nextLine());
+					System.out.print("Confirm password: ");
+					user.setPassword_c(scan.nextLine());
+					
+					if(user.getPassword().compareTo(user.getPassword_c()) != 0) {
+						System.out.println("Error: Passwords do not match");
+						keepGoing = true;
+					}
+					else {
+						keepGoing = false;
+					}
+					
+				} while(keepGoing);
+				
 				database.addUser(user);
 				
 			}
@@ -54,6 +69,8 @@ public class FrontEnd {
 				System.out.print("Enter email: ");
 				String email = scan.nextLine();
 
+				// No password changes allowed right now
+				
 				database.updateUser(uid, firstName, lastName, email);
 				System.out.println("Updated user information:");
 				database.displayUser(uid);
